@@ -1,0 +1,23 @@
+@media print {
+  body {
+    background: #fff !important;
+    color: #000 !important;
+    font-size: 12pt;
+  }
+
+  .theme-toggle {
+    display: none !important;
+  }
+
+  .chapter-header {
+    background: #333 !important;
+    color: #fff !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .section {
+    break-inside: avoid;
+    box-shadow: none !important;
+  }
+}

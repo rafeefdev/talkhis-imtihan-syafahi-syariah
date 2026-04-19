@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ملخص الفقه الشرعي وعلوم القرآن</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic:wght@400;500;600;700&family=Noto+Sans+Arabic:wght@400;500;600;700&family=Scheherazade+New:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body data-theme="light">
+
+  <button class="theme-toggle" id="themeToggle" aria-label="تبديل الوضع الليلي/النهاري">
+    <svg class="theme-toggle__icon theme-toggle__icon--sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <circle cx="12" cy="12" r="5"/>
+      <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+    </svg>
+    <svg class="theme-toggle__icon theme-toggle__icon--moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+    </svg>
+    <span class="theme-toggle__text">الوضع الليلي</span>
+  </button>
+
+  <div class="doc">
+
+    <h1>ملخص الفقه الشرعي وعلوم القرآن</h1>
+    <div class="subtitle">إعداد خاص لاختبارات القبول في أقسام الشريعة الإسلامية — المذهب الحنبلي</div>
+
+    <div class="toc">
+      <div class="toc-title">فهرس المحتويات</div>
+      <div class="toc-grid">
+        <div class="toc-item">الفصل الأول: فقه العبادات</div>
+        <div class="toc-item">الفصل الثاني: فقه المعاملات</div>
+        <div class="toc-item">الفصل الثالث: فقه النكاح</div>
+        <div class="toc-item">الفصل الرابع: أصول التفسير وعلوم القرآن</div>
+      </div>
+    </div>
+
+    <div w3-include-html="chapters/chapter1-ibadah.html"></div>
+    <div w3-include-html="chapters/chapter2-muamalat.html"></div>
+    <div w3-include-html="chapters/chapter3-nikah.html"></div>
+    <div w3-include-html="chapters/chapter4-usul-tafsir.html"></div>
+
+    <div class="doc-footer">
+      <div class="doc-footer__title">إعداد للاختبارات الأكاديمية — المذهب الحنبلي — أصول التفسير وعلوم القرآن</div>
+      <div class="doc-footer__refs">المراجع الأساسية: الكافي لابن قدامة — المغني — زاد المعاد — البرهان للزركشي — الإتقان للسيوطي — مناهل العرفان للزرقاني</div>
+    </div>
+
+  </div>
+
+  <script type="module" src="assets/js/main.js"></script>
+  <script>
+    (function includeHTML() {
+      const elements = document.querySelectorAll('[w3-include-html]');
+      elements.forEach(el => {
+        const file = el.getAttribute('w3-include-html');
+        fetch(file)
+          .then(response => response.text())
+          .then(data => {
+            el.innerHTML = data;
+            el.removeAttribute('w3-include-html');
+          })
+          .catch(err => console.error('Error loading:', file, err));
+      });
+    })();
+  </script>
+</body>
+</html>
